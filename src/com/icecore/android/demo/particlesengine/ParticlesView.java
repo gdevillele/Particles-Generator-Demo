@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////
+///
+///	@file 			: ParticlesView.java
+///	@description 	: the particles sand-box View 
+///	@project		: Particles Engine Demo
+///	@author			: Gaëtan de Villèle - Icecore 2011
+///					: gdevillele@gmail.com
+///
+//////////////////////////////////////////////////////////
+
 package com.icecore.android.demo.particlesengine;
 
 import java.util.ArrayList;
@@ -15,15 +25,17 @@ import android.util.AttributeSet;
 
 public class ParticlesView extends View
 {
+	//---------------------------------------------------
 	// ATTRIBUTES
-	//---------------------------------------------------	
+	//---------------------------------------------------
 	private ArrayList<Particle>		particlesArray		= new ArrayList<Particle>();
 	private RefreshHandler 			myRefreshHandler	= new RefreshHandler();
 
 	
 	
-	
+	//---------------------------------------------------
 	// CONSTRUCTOR
+	//---------------------------------------------------
 	public ParticlesView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.init();
@@ -39,9 +51,8 @@ public class ParticlesView extends View
 	
 	
 	
-	
 	// INIT - just after the instanciation
-	//-------------------------------------------------------------
+	//---------------------------------------------------
 	protected void init()
 	{
 		//Particle p = new Particle(100, 100);
@@ -50,7 +61,7 @@ public class ParticlesView extends View
 	
 	
 	// ON TOUCH
-	//--------------------------------------------------------------
+	//---------------------------------------------------
 	 public boolean onTouchEvent(MotionEvent event)
 	    {	
 	    	Particle p = new Particle(event.getX(), event.getY());
@@ -105,14 +116,13 @@ public class ParticlesView extends View
 	
 	//-------------------------------------------
 	//	REFRESH HANDLER CLASS
-	//
+	//---------------------------------------------------
 	class RefreshHandler extends Handler
 	{
 	    @Override
 	    public void handleMessage(Message msg)
 		{
-	       	// TODO - EFFECTUE LA MAJ DES PARTICLES
-	    	// en fonction de la vitesse et de la gravité
+	    	// Provoque le rafraichissement de la View
 	       	ParticlesView.this.invalidate();
 	    }
 
